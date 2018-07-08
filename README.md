@@ -1,1 +1,1 @@
-Java simple cart project
+Java simple cart project example
