@@ -20,8 +20,7 @@ public class MyCart {
 	 */
 	public void addItem(Product product, BigDecimal price, int quantity)
 			throws ItemQuantityException {
-		
-		item.forEach(item -> {
+		for (Item item : items) {
 			if (item.getProduct().getID().equals(product.getID())) {
 				item.addQuantity(quantity);
 				item.setPrice(price);
@@ -30,17 +29,7 @@ public class MyCart {
 				addProduct(product, price, quantity);
 				return;
 			}
-		})
-		/*for (Item item : items) {
-			if (item.getProduct().getID().equals(product.getID())) {
-				item.addQuantity(quantity);
-				item.setPrice(price);
-				return;
-			} else {
-				addProduct(product, price, quantity);
-				return;
-			}
-		}*/
+		}
 		addProduct(product, price, quantity);
 	}
 	
