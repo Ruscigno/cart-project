@@ -31,9 +31,9 @@ public class Item {
 	 * @throws ItemQuantityException 
 	 */
 	public void addQuantity(int quantity) throws ItemQuantityException {
-		int qtd = this.quantity + quantity;
-		checkQuantity(qtd);
-		this.quantity  = qtd;
+		int qtt = this.quantity + quantity;
+		checkQuantity(qtt);
+		this.quantity  = qtt;
 	}
 	
 	/**
@@ -83,5 +83,18 @@ public class Item {
     public BigDecimal getTotalItem() throws ItemQuantityException {
     	checkQuantity(quantity);
     	return price.multiply(new BigDecimal(quantity));
+    }
+    
+    /**
+     * @return Boolean 
+     */
+    public Boolean equals(Long id) {
+    	return (product.getID() == id);
+    }
+    
+    public Boolean update(BigDecimal price, int quantity) {
+    	addQuantity(quantity);
+    	setPrice(price);
+    	return true;
     }
 }
